@@ -26,7 +26,7 @@ Input:
 
 Line:
      END
-     | Expression END { printf("Result: %f\n", $1); }
+     | Expression END { printf("Result: %s\n", $1); }
 ;
 
 Expression:
