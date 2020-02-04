@@ -31,16 +31,16 @@ Line:
 
 Expression:
      NUMBER { $$=$1; }
-| Expression PLUS Expression { $$=$1 $3 $2; }
-| Expression MINUS Expression { $$=$1 $3 $2; }
-| Expression TIMES Expression { $$=$1 $3 $2; }
-| Expression DIVIDE Expression { $$=$1 $3 $2; }
-| MINUS Expression %prec NEG { $$=$2 $1; }
-| SQRT Expression { $$=$2 $1; }
-| Expression POWER Expression { $$=$1 $3 $2; }
-| SIN Expression { $$=$2 $1; }
-| COS Expression { $$=$2 $1; }
-| TAN Expression { $$=$2 $1; }
+| Expression PLUS Expression { $1 $3 $2; }
+| Expression MINUS Expression { $1 $3 $2; }
+| Expression TIMES Expression { $1 $3 $2; }
+| Expression DIVIDE Expression { $1 $3 $2; }
+| MINUS Expression %prec NEG { $2 $1; }
+| SQRT Expression { $2 $1; }
+| Expression POWER Expression { $1 $3 $2; }
+| SIN Expression { $2 $1; }
+| COS Expression { $2 $1; }
+| TAN Expression { $2 $1; }
 | LEFT Expression RIGHT { $$=$2; }
 ;
 
