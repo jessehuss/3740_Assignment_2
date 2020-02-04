@@ -6,15 +6,16 @@
 %}
 
 %token NUMBER
-%token PLUS MINUS TIMES DIVIDE SIN COS TAN POWER
+%token PLUS MINUS TIMES DIVIDE SQRT POWER SIN COS TAN
 %token LEFT RIGHT
 %token END
 
 %left PLUS MINUS
 %left TIMES DIVIDE
 %left NEG
-%left SIN COS TAN
+%left SQRT
 %right POWER
+%left SIN COS TAN
 %start Input
 %%
 
@@ -35,10 +36,11 @@ Expression:
 | Expression TIMES Expression { $$=$1*$3; }
 | Expression DIVIDE Expression { $$=$1/$3; }
 | MINUS Expression %prec NEG { $$=-$2; }
+| SQRT Expression { $$=sqrt($2); }
+| Expression POWER Expression { $$=pow($1,$3); }
 | SIN Expression { $$=sin($2); }
 | COS Expression { $$=cos($2); }
 | TAN Expression { $$=tan($2); }
-| Expression POWER Expression { $$=pow($1,$3); }
 | LEFT Expression RIGHT { $$=$2; }
 ;
 

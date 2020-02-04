@@ -24,6 +24,7 @@ real {integer}("."{integer})?{exponent}?
 "sin" return SIN;
 "cos" return COS;
 "tan" return TAN;
+"sqrt" return SQRT;
 "^" return POWER;
 "(" return LEFT;
 ")" return RIGHT;
