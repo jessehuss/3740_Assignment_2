@@ -1235,73 +1235,73 @@ yyreduce:
 
   case 6:
 #line 33 "calc.y" /* yacc.c:1646  */
-    { (yyval)=(yyvsp[0]); }
+    { printf("%d", (yyvsp[0])); }
 #line 1240 "calc.tab.c" /* yacc.c:1646  */
     break;
 
   case 7:
 #line 34 "calc.y" /* yacc.c:1646  */
-    { (yyvsp[-2]) (yyvsp[0]) (yyvsp[-1]); }
+    { printf("%d %d +",(yyvsp[-2]), (yyvsp[0])); }
 #line 1246 "calc.tab.c" /* yacc.c:1646  */
     break;
 
   case 8:
 #line 35 "calc.y" /* yacc.c:1646  */
-    { (yyvsp[-2]) (yyvsp[0]) (yyvsp[-1]); }
+    { printf("%d %d -",(yyvsp[-2]), (yyvsp[0])); }
 #line 1252 "calc.tab.c" /* yacc.c:1646  */
     break;
 
   case 9:
 #line 36 "calc.y" /* yacc.c:1646  */
-    { (yyvsp[-2]) (yyvsp[0]) (yyvsp[-1]); }
+    { printf("%d %d *",(yyvsp[-2]), (yyvsp[0])); }
 #line 1258 "calc.tab.c" /* yacc.c:1646  */
     break;
 
   case 10:
 #line 37 "calc.y" /* yacc.c:1646  */
-    { (yyvsp[-2]) (yyvsp[0]) (yyvsp[-1]); }
+    { printf("%d %d /",(yyvsp[-2]), (yyvsp[0])); }
 #line 1264 "calc.tab.c" /* yacc.c:1646  */
     break;
 
   case 11:
 #line 38 "calc.y" /* yacc.c:1646  */
-    { (yyvsp[0]) (yyvsp[-1]); }
+    { printf("%d -", (yyvsp[0])); }
 #line 1270 "calc.tab.c" /* yacc.c:1646  */
     break;
 
   case 12:
 #line 39 "calc.y" /* yacc.c:1646  */
-    { (yyvsp[0]) (yyvsp[-1]); }
+    { printf("%d sqrt", (yyvsp[0])); }
 #line 1276 "calc.tab.c" /* yacc.c:1646  */
     break;
 
   case 13:
 #line 40 "calc.y" /* yacc.c:1646  */
-    { (yyvsp[-2]) (yyvsp[0]) (yyvsp[-1]); }
+    { printf("%d %d ^",(yyvsp[-2]), (yyvsp[0])); }
 #line 1282 "calc.tab.c" /* yacc.c:1646  */
     break;
 
   case 14:
 #line 41 "calc.y" /* yacc.c:1646  */
-    { (yyvsp[0]) (yyvsp[-1]); }
+    { printf("%d sin", (yyvsp[0])); }
 #line 1288 "calc.tab.c" /* yacc.c:1646  */
     break;
 
   case 15:
 #line 42 "calc.y" /* yacc.c:1646  */
-    { (yyvsp[0]) (yyvsp[-1]); }
+    { printf("%d cos", (yyvsp[0])); }
 #line 1294 "calc.tab.c" /* yacc.c:1646  */
     break;
 
   case 16:
 #line 43 "calc.y" /* yacc.c:1646  */
-    { (yyvsp[0]) (yyvsp[-1]); }
+    { printf("%d tan", (yyvsp[0])); }
 #line 1300 "calc.tab.c" /* yacc.c:1646  */
     break;
 
   case 17:
 #line 44 "calc.y" /* yacc.c:1646  */
-    { (yyval)=(yyvsp[-1]); }
+    { printf("(%d)", (yyvsp[-1])); }
 #line 1306 "calc.tab.c" /* yacc.c:1646  */
     break;
 

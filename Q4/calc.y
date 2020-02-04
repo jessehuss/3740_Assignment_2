@@ -31,16 +31,16 @@ Line:
 
 Expression:
      NUMBER { printf("%d", $1); }
-| Expression PLUS Expression { printf("%d %d %s",$1, $3, $2); }
-| Expression MINUS Expression { printf("%d %d %s",$1, $3, $2); }
-| Expression TIMES Expression { printf("%d %d %s",$1, $3, $2); }
-| Expression DIVIDE Expression { printf("%d %d %s",$1, $3, $2); }
-| MINUS Expression %prec NEG { printf("%d %s", $2, $1); }
-| SQRT Expression { printf("%s %d", $2, $1); }
-| Expression POWER Expression { printf("%d %d %s",$1, $3, $2); }
-| SIN Expression { printf("%s %d", $2, $1); }
-| COS Expression { printf("%s %d", $2, $1); }
-| TAN Expression { printf("%s %d", $2, $1); }
+| Expression PLUS Expression { printf("%d %d +",$1, $3); }
+| Expression MINUS Expression { printf("%d %d -",$1, $3); }
+| Expression TIMES Expression { printf("%d %d *",$1, $3); }
+| Expression DIVIDE Expression { printf("%d %d /",$1, $3); }
+| MINUS Expression %prec NEG { printf("%d -", $2); }
+| SQRT Expression { printf("%d sqrt", $2); }
+| Expression POWER Expression { printf("%d %d ^",$1, $3); }
+| SIN Expression { printf("%d sin", $2); }
+| COS Expression { printf("%d cos", $2); }
+| TAN Expression { printf("%d tan", $2); }
 | LEFT Expression RIGHT { printf("(%d)", $2); }
 ;
 
