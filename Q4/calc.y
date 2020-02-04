@@ -30,18 +30,18 @@ Line:
 ;
 
 Expression:
-     NUMBER { $$=$1; }
-| Expression PLUS Expression { $1 $3 $2; }
-| Expression MINUS Expression { $1 $3 $2; }
-| Expression TIMES Expression { $1 $3 $2; }
-| Expression DIVIDE Expression { $1 $3 $2; }
-| MINUS Expression %prec NEG { $2 $1; }
-| SQRT Expression { $2 $1; }
-| Expression POWER Expression { $1 $3 $2; }
-| SIN Expression { $2 $1; }
-| COS Expression { $2 $1; }
-| TAN Expression { $2 $1; }
-| LEFT Expression RIGHT { $$=$2; }
+     NUMBER { printf("%d", $1); }
+| Expression PLUS Expression { printf("%d %d %s",$1, $3, $2); }
+| Expression MINUS Expression { printf("%d %d %s",$1, $3, $2); }
+| Expression TIMES Expression { printf("%d %d %s",$1, $3, $2); }
+| Expression DIVIDE Expression { printf("%d %d %s",$1, $3, $2); }
+| MINUS Expression %prec NEG { printf("%d %s", $2, $1); }
+| SQRT Expression { printf("%s %d", $2, $1); }
+| Expression POWER Expression { printf("%d %d %s",$1, $3, $2); }
+| SIN Expression { printf("%s %d", $2, $1); }
+| COS Expression { printf("%s %d", $2, $1); }
+| TAN Expression { printf("%s %d", $2, $1); }
+| LEFT Expression RIGHT { printf("(%d)", $2); }
 ;
 
 %%
