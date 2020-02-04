@@ -2,6 +2,8 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <iostream>
+#include <string>
 #define YYSTYPE double
 %}
 
@@ -30,18 +32,18 @@ Line:
 ;
 
 Expression:
-     NUMBER { printf("%d", $1); }
-| Expression PLUS Expression { printf("%d %d +",$1, $3); }
-| Expression MINUS Expression { printf("%d %d -",$1, $3); }
-| Expression TIMES Expression { printf("%d %d *",$1, $3); }
-| Expression DIVIDE Expression { printf("%d %d /",$1, $3); }
-| MINUS Expression %prec NEG { printf("%d -", $2); }
-| SQRT Expression { printf("%d sqrt", $2); }
-| Expression POWER Expression { printf("%d %d ^",$1, $3); }
-| SIN Expression { printf("%d sin", $2); }
-| COS Expression { printf("%d cos", $2); }
-| TAN Expression { printf("%d tan", $2); }
-| LEFT Expression RIGHT { printf("(%d)", $2); }
+     NUMBER { $$=std::to_string($1); }
+| Expression PLUS Expression { $$=std::to_string($1) + " " + std::to_string($3) + " +"; }
+| Expression MINUS Expression { $$=std::to_string($1) + " " +  std::to_string($3) + " -"; }
+| Expression TIMES Expression { $$=std::to_string($1) + " " +  std::to_string($3) + " *"; }
+| Expression DIVIDE Expression { $$=std::to_string($1) + " " +  std::to_string($3) + " /"; }
+| MINUS Expression %prec NEG { $$=std::to_string($2) + " -"; }
+| SQRT Expression { $$=std::to_string($2) + " sqrt"; }
+| Expression POWER Expression { $$=std::to_string($1) + " " + std::to_string($3) + " ^"; }
+| SIN Expression { $$=std::to_string($2) + " sin"; }
+| COS Expression { $$=std::to_string($2) + " cos"; }
+| TAN Expression { $$=std::to_string($2) + " tan"; }
+| LEFT Expression RIGHT { $$="(" + std::to_string($2) + ")"; }
 ;
 
 %%
