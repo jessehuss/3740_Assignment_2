@@ -471,9 +471,9 @@ int yy_flex_debug = 0;
 char *yytext;
 #line 1 "calc.lex"
 #line 2 "calc.lex"
-#define YYSTYPE double
 #include "calc.tab.h"
 #include <stdlib.h>
+extern int yylval;
 #line 478 "calc.lex.c"
 
 #define INITIAL 0

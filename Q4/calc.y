@@ -22,18 +22,18 @@ Input:
 ;
 
 Expression:
-Expression PLUS Expression { printf("+"); }
-| Expression MINUS Expression { printf("-"); }
-| Expression TIMES Expression { printf("*"); }
-| Expression DIVIDE Expression { printf("/"); }
-| MINUS Expression %prec NEG { printf("-"); }
-| SQRT Expression { printf("sqrt"); }
-| Expression POWER Expression { printf("^"); }
-| SIN Expression { printf("sin"); }
-| COS Expression { printf("cos"); }
-| TAN Expression { printf("tan"); }
+Expression PLUS Expression { printf("+ "); }
+| Expression MINUS Expression { printf("- "); }
+| Expression TIMES Expression { printf("* "); }
+| Expression DIVIDE Expression { printf("/ "); }
+| MINUS Expression %prec NEG { printf("- "); }
+| SQRT Expression { printf("sqrt "); }
+| Expression POWER Expression { printf("^ "); }
+| SIN Expression { printf("sin "); }
+| COS Expression { printf("cos "); }
+| TAN Expression { printf("tan "); }
 | LEFT Expression RIGHT
-|    NUMBER    { printf("%d", yylval) }
+|    NUMBER    { printf("%d ", yylval); }
 
 ;
 
