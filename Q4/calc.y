@@ -1,8 +1,5 @@
 %{
-#include <math.h>
 #include <stdio.h>
-#include <stdlib.h>
-#define YYSTYPE double
 %}
 
 %token NUMBER
@@ -21,27 +18,23 @@
 
 Input:
     
-     | Input Line
-;
-
-Line:
-     END
-     | Expression END { printf("\n"); }
+     Expression { printf("\n"); }
 ;
 
 Expression:
-     NUMBER { printf("%d", yyval) }
-| Expression PLUS Expression { printf("+") }
-| Expression MINUS Expression { printf("-") }
-| Expression TIMES Expression { printf("*") }
-| Expression DIVIDE Expression { printf("/") }
-| MINUS Expression %prec NEG { printf("-") }
-| SQRT Expression { printf("sqrt") }
-| Expression POWER Expression { printf("^") }
-| SIN Expression { printf("sin") }
-| COS Expression { printf("cos") }
-| TAN Expression { printf("tan") }
+Expression PLUS Expression { printf("+"); }
+| Expression MINUS Expression { printf("-"); }
+| Expression TIMES Expression { printf("*"); }
+| Expression DIVIDE Expression { printf("/"); }
+| MINUS Expression %prec NEG { printf("-"); }
+| SQRT Expression { printf("sqrt"); }
+| Expression POWER Expression { printf("^"); }
+| SIN Expression { printf("sin"); }
+| COS Expression { printf("cos"); }
+| TAN Expression { printf("tan"); }
 | LEFT Expression RIGHT
+|    NUMBER    { printf("%d", yylval) }
+
 ;
 
 %%

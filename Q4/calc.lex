@@ -1,7 +1,7 @@
 %{
-#define YYSTYPE string
 #include "calc.tab.h"
 #include <stdlib.h>
+extern int yylval;
 %}
 
 white [ \t]+
@@ -9,7 +9,6 @@ digit [0-9]
 integer {digit}+
 exponent [eE][+-]?{integer}
 real {integer}("."{integer})?{exponent}?
-string 
 
 %%
 
