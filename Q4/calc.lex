@@ -1,5 +1,5 @@
 %{
-#define YYSTYPE double
+#define YYSTYPE string
 #include "calc.tab.h"
 #include <stdlib.h>
 %}

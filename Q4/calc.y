@@ -2,9 +2,9 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <iostream>
 #include <string>
-#define YYSTYPE double
+
+#define YYSTYPE string
 %}
 
 %token NUMBER
@@ -28,15 +28,15 @@ Input:
 
 Line:
      END
-     | Expression END { printf("Result: %s\n", $1); }
+     | Expression END { printf("Result: %f\n", $1); }
 ;
 
 Expression:
      NUMBER { $$=std::to_string($1); }
 | Expression PLUS Expression { $$=std::to_string($1) + " " + std::to_string($3) + " +"; }
-| Expression MINUS Expression { $$=std::to_string($1) + " " +  std::to_string($3) + " -"; }
-| Expression TIMES Expression { $$=std::to_string($1) + " " +  std::to_string($3) + " *"; }
-| Expression DIVIDE Expression { $$=std::to_string($1) + " " +  std::to_string($3) + " /"; }
+| Expression MINUS Expression { $$=std::to_string($1) + " " + std::to_string($3) + " -"; }
+| Expression TIMES Expression { $$=std::to_string($1) + " " + std::to_string($3) + " *"; }
+| Expression DIVIDE Expression { $$=std::to_string($1) + " " + std::to_string($3) + " /"; }
 | MINUS Expression %prec NEG { $$=std::to_string($2) + " -"; }
 | SQRT Expression { $$=std::to_string($2) + " sqrt"; }
 | Expression POWER Expression { $$=std::to_string($1) + " " + std::to_string($3) + " ^"; }
